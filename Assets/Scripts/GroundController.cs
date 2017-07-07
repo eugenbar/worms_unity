@@ -39,12 +39,12 @@ public class GroundController : MonoBehaviour {
 	}
 
 	public void DestroyGround( CircleCollider2D cc ){
-		Debug.Log ("chamou DestroyGround");
+		Debug.Log ("Called from DestroyGround");
 
 		V2int c = World2Pixel(cc.bounds.center.x, cc.bounds.center.y);
-		// c => centro do circulo de destruiçao em pixels
+		// c => centre of destructio (circle) in pixels
 		int r = Mathf.RoundToInt(cc.bounds.size.x*widthPixel/widthWorld);
-		// r => raio do circulo de destruiçao em 
+		// r => radius of destrction (circle)
 
 		int x, y, px, nx, py, ny, d;
 		

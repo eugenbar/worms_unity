@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// Classe que contém a função OnClick(), que é chamada ao clicarmos no botão
+// Class that contains the OnClick () function, which is called by clicking the button
 public class MenuController : MonoBehaviour {
 
 	// Use this for initialization
@@ -14,9 +14,9 @@ public class MenuController : MonoBehaviour {
 	
 	}
 
-    // A função OnClick() troca de cena
-    // Lembrem que adicionamos as cenas que nosso jogo conterá em File->Build Settings
-	public void OnClick(){
+    // OnClick () function changes scene
+    // Remember that the scenes that the game will contain are in File-> Build Settings
+    public void OnClick(){
 		Application.LoadLevel("wormScene");
 	}
 }
