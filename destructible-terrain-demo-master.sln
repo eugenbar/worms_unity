@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "destructible-terrain-demo-master", "destructible-terrain-demo-master.csproj", "{0B7DB87A-F033-CD70-56BC-DB65FD68F937}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B7DB87A-F033-CD70-56BC-DB65FD68F937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B7DB87A-F033-CD70-56BC-DB65FD68F937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B7DB87A-F033-CD70-56BC-DB65FD68F937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B7DB87A-F033-CD70-56BC-DB65FD68F937}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
