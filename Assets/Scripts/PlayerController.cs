@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
     public Transform bodyTransform; // ref for the Transform of the GameObject Body (Body contains the sprite of the body of the worm)
     public Transform bulletInitialTransform; // ref for the Transform that stores the initial position of the bullet
 
-    private bool targetting; // the player is watching?
+    private bool targeting; // the player is watching?
 
     // Use this for initialization
     void Start () {
@@ -37,16 +37,17 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		if( Input.GetKeyDown(KeyCode.W) )
         { // The weapon becomes visible
-            targetting = true;
+            targeting = true;
 			gunTransform.gameObject.SetActive(true);
 		}
-		if( targetting ){
+		if( targeting ){
 			UpdateTargetting();
 			UpdateShootDetection();
 			if( shooting )
 				UpdateShooting();
 		}
-		//gunTransform.localEulerAngles = new Vector3(0f, 0f, 30f);
+        //gunTransform.localEulerAngles = new Vector3(0f, 0f, 30f);
+        UpdateMove();
 	}
 
     // Check if Player has started shooting
@@ -70,12 +71,14 @@ public class PlayerController : MonoBehaviour {
 			shooting = false;
 			shootingEffect.SetActive(false);
 			Shoot();
+            targeting = false;
 		}
 		if( timeShooting > maxTimeShooting ){
 			shooting = false;
 			shootingEffect.SetActive(false);
 			Shoot ();
-		}
+            targeting = false;
+        }
 	}
 
     // Function that creates a GameObject Bullet from bulletPrefab
@@ -123,23 +126,32 @@ public class PlayerController : MonoBehaviour {
 
     // Update the speed of our Player based on the keys pressed
     void UpdateMove(){
-		if( Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow) ){
-			rb.velocity = Vector2.right*velocity;
+		if( (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+            || (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A)))
+        {
+			rb.velocity = new Vector2(velocity,rb.velocity.y);
 			if( bodyTransform.localScale.x > 0f )
 				bodyTransform.localScale = new Vector3( -bodyTransform.localScale.x, bodyTransform.localScale.y, 0f );
 
 			an.SetBool("moving", true);
 		}
-		else if( !Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow) ){
-			rb.velocity = -Vector2.right*velocity;
-			if( bodyTransform.localScale.x < 0f )
+		else if( (!Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow))
+            || (!Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)))
+        {
+            rb.velocity = new Vector2(-velocity, rb.velocity.y);
+            if ( bodyTransform.localScale.x < 0f )
 				bodyTransform.localScale = new Vector3( -bodyTransform.localScale.x, bodyTransform.localScale.y, 0f );
 
 			an.SetBool("moving", true);
 		}
-		else{
-			rb.velocity = Vector2.zero;
-			an.SetBool("moving", false);
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 5);
+        }
+        else
+        {
+			rb.velocity = new Vector2(0, rb.velocity.y);
+            an.SetBool("moving", false);
 		}
 	}
 
