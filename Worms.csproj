@@ -78,12 +78,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MS\Voxel.cs" />
+    <Compile Include="Assets\MS\VoxelGrid.cs" />
+    <Compile Include="Assets\MS\VoxelMap.cs" />
+    <Compile Include="Assets\MS\VoxelStencil.cs" />
+    <Compile Include="Assets\MS\VoxelStencilCircle.cs" />
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\GroundController.cs" />
+    <Compile Include="Assets\Scripts\MapGenerator.cs" />
     <Compile Include="Assets\Scripts\MenuController.cs" />
+    <Compile Include="Assets\Scripts\MeshGenerator.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\SpawnerController.cs" />
     <Compile Include="Assets\Scripts\V2int.cs" />
+    <Compile Include="Assets\TimelineHourglass\Scripts\DummyControlUnit.cs" />
+    <Compile Include="Assets\TimelineHourglass\Scripts\Fireplace.cs" />
+    <Compile Include="Assets\TimelineHourglass\Scripts\Icon.cs" />
+    <Compile Include="Assets\TimelineHourglass\Scripts\Timeline.cs" />
+    <Compile Include="Assets\TimelineHourglass\Scripts\TimelineEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\MS\2D Flat.shader" />
+    <None Include="Assets\Medieval Sword\read me.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
