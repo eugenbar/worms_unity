@@ -20,8 +20,10 @@ public class PlayerController : MonoBehaviour {
     public Transform gunTransform; // ref to the Transform of the GameObject Gun (Gun contains the sprite of the gun and the sight)
     public Transform bodyTransform; // ref for the Transform of the GameObject Body (Body contains the sprite of the body of the worm)
     public Transform bulletInitialTransform; // ref for the Transform that stores the initial position of the bullet
+    public Transform knifeTransform; // ref to knife Transform.
 
     private bool targeting; // the player is watching?
+    private bool knifing; // player is knifing
 
     // Use this for initialization
     void Start () {
@@ -35,17 +37,33 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if( Input.GetKeyDown(KeyCode.W) )
+		if( Input.GetKeyDown(KeyCode.Alpha1) )
         { // The weapon becomes visible
             targeting = true;
+            knifing = false;
 			gunTransform.gameObject.SetActive(true);
 		}
-		if( targeting ){
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        { // The knife becomes visible
+            knifing = true;
+            targeting = false;
+            knifeTransform.gameObject.SetActive(true);
+        }
+        if ( targeting ){
 			UpdateTargetting();
 			UpdateShootDetection();
 			if( shooting )
 				UpdateShooting();
 		}
+        if (knifing)
+        {
+            UpdateKnifing();      
+        }
+        else
+        {
+            knifing = false;
+            targeting = false;
+        }
         //gunTransform.localEulerAngles = new Vector3(0f, 0f, 30f);
         UpdateMove();
 	}
@@ -123,7 +141,10 @@ public class PlayerController : MonoBehaviour {
 
 		gunTransform.localEulerAngles = new Vector3(0f, 0f, angle);
 	}
+    void UpdateKnifing()
+    {
 
+    }
     // Update the speed of our Player based on the keys pressed
     void UpdateMove(){
 		if( (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
