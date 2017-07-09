@@ -42,12 +42,14 @@ public class PlayerController : MonoBehaviour {
             targeting = true;
             knifing = false;
 			gunTransform.gameObject.SetActive(true);
-		}
+            knifeTransform.gameObject.SetActive(false);
+        }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         { // The knife becomes visible
             knifing = true;
             targeting = false;
             knifeTransform.gameObject.SetActive(true);
+            gunTransform.gameObject.SetActive(false);
         }
         if ( targeting ){
 			UpdateTargetting();
@@ -59,9 +61,9 @@ public class PlayerController : MonoBehaviour {
         {
             UpdateKnifing();      
         }
-        else
+        if (an.GetBool("moving"))
         {
-            knifing = false;
+            gunTransform.gameObject.SetActive(false);
             targeting = false;
         }
         //gunTransform.localEulerAngles = new Vector3(0f, 0f, 30f);
@@ -157,7 +159,7 @@ public class PlayerController : MonoBehaviour {
 			an.SetBool("moving", true);
 		}
 		else if( (!Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow))
-            || (!Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)))
+            || (!Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A)))
         {
             rb.velocity = new Vector2(-velocity, rb.velocity.y);
             if ( bodyTransform.localScale.x < 0f )

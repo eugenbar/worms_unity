@@ -7,7 +7,7 @@ public class BulletController : MonoBehaviour {
 	private Rigidbody2D rb;
     // Ref to Rigidbody2D of bullet
     public Transform bulletSpriteTransform;
-    // Ref to the transform of the GameObject Sprite that is inside the GameObject Screenshot for Bullet
+    // Ref to the transform of the GameObject Sprite that is inside the GameObject Bullet
     private bool updateAngle = true;
     // bool that says whether or not to update the GameObject Sprite rotation based on traj. Bullet
     // This bool is to say that after the bullet collides with some other body, the rotation
