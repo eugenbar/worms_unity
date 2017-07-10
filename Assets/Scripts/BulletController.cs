@@ -16,7 +16,7 @@ public class BulletController : MonoBehaviour {
     // Ref to the gameObject BulletSmoke, which contains the particle system that makes the bullet trail
     public CircleCollider2D destructionCircle;
 	public static GroundController groundController;
-
+    public GameObject explosion;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
@@ -48,7 +48,10 @@ public class BulletController : MonoBehaviour {
         // no longer updates rotation based on path
         // and the particle effect of the bullet trail is disabled
         if ( coll.collider.tag == "Ground" ){
-			updateAngle = false;
+            GameObject exp = Instantiate(explosion);
+            exp.transform.position = this.transform.position;
+            exp.SetActive(true);
+            updateAngle = false;
 			bulletSmoke.SetActive(false);
 			groundController.DestroyGround( destructionCircle );
 			Destroy(gameObject);

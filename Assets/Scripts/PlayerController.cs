@@ -24,50 +24,59 @@ public class PlayerController : MonoBehaviour {
 
     private bool targeting; // the player is watching?
     private bool knifing; // player is knifing
+    public bool isActive;
+    public Game parent;
+    public bool switchP;
+    public float wind;
 
     // Use this for initialization
     void Start () {
-		bc = GetComponent<BoxCollider2D>();
+        bc = GetComponent<BoxCollider2D>();
 		rb = GetComponent<Rigidbody2D>();
         // Looking for an Animator-type component in the GameObjects children of Player
         // Actually we want the Animator component that is in the GameObject Body
         an = GetComponentInChildren<Animator>();
+
 		//gunTransform.eulerAngles = new Vector3(0f, 0f, -30f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if( Input.GetKeyDown(KeyCode.Alpha1) )
-        { // The weapon becomes visible
-            targeting = true;
-            knifing = false;
-			gunTransform.gameObject.SetActive(true);
-            knifeTransform.gameObject.SetActive(false);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        { // The knife becomes visible
-            knifing = true;
-            targeting = false;
-            knifeTransform.gameObject.SetActive(true);
-            gunTransform.gameObject.SetActive(false);
-        }
-        if ( targeting ){
-			UpdateTargetting();
-			UpdateShootDetection();
-			if( shooting )
-				UpdateShooting();
-		}
-        if (knifing)
+        if (isActive)
         {
-            UpdateKnifing();      
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            { // The weapon becomes visible
+                targeting = true;
+                knifing = false;
+                gunTransform.gameObject.SetActive(true);
+                knifeTransform.gameObject.SetActive(false);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            { // The knife becomes visible
+                knifing = true;
+                targeting = false;
+                knifeTransform.gameObject.SetActive(true);
+                gunTransform.gameObject.SetActive(false);
+            }
+            if (targeting)
+            {
+                UpdateTargetting();
+                UpdateShootDetection();
+                if (shooting)
+                    UpdateShooting();
+            }
+            if (knifing)
+            {
+                UpdateKnifing();
+            }
+            if (an.GetBool("moving"))
+            {
+                gunTransform.gameObject.SetActive(false);
+                targeting = false;
+            }
+            //gunTransform.localEulerAngles = new Vector3(0f, 0f, 30f);
+            UpdateMove();
         }
-        if (an.GetBool("moving"))
-        {
-            gunTransform.gameObject.SetActive(false);
-            targeting = false;
-        }
-        //gunTransform.localEulerAngles = new Vector3(0f, 0f, 30f);
-        UpdateMove();
 	}
 
     // Check if Player has started shooting
@@ -117,8 +126,14 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log("Shoot!");
 		GameObject bullet = Instantiate(bulletPrefab);
 		bullet.transform.position = bulletInitialTransform.position;
-		bullet.GetComponent<Rigidbody2D>().velocity = shootDirection*bulletMaxInitialVelocity*(timeShooting/maxTimeShooting);
-	}
+		bullet.GetComponent<Rigidbody2D>().velocity = (shootDirection*bulletMaxInitialVelocity+new Vector2(wind,0))*(timeShooting/maxTimeShooting);
+
+        switchP = true;
+        isActive = false;
+        shooting = false;
+        knifing = false;
+        targeting = false;
+    }
 
     // Updating the rotation of the weapon and consequently of the aim based on where the player is looking
     // Tb we must update the scale of bodyTransform for the body of our Player to be in accordance with the direction in which the player is looking
