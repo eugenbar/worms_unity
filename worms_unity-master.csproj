@@ -76,6 +76,15 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="2D Sky FREE">
+      <HintPath>Assets\2D Sky FREE\Demo\Scripts\2D Sky FREE.dll</HintPath>
+    </Reference>
+    <Reference Include="GETween">
+      <HintPath>Assets\GUI Animator\Common\Plugins\GETween.dll</HintPath>
+    </Reference>
+    <Reference Include="GUIAnimatorFREE">
+      <HintPath>Assets\GUI Animator\GUI Animator FREE\Plugins\GUIAnimatorFREE.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
@@ -83,6 +92,22 @@
     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCamera.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCameraUI.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Toggle Full Screen\Scripts\GE_ToggleFullScreenUI.cs" />
+    <Compile Include="Assets\GE Common Assets\Scripts\GE_UIResponder.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo00.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo01.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo02.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo03.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo04.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo05.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo06.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo07.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo08.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_DemoPlaySound.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
     <Compile Include="Assets\MS\Voxel.cs" />
     <Compile Include="Assets\MS\VoxelGrid.cs" />
     <Compile Include="Assets\MS\VoxelMap.cs" />
@@ -149,7 +174,12 @@
     <Compile Include="Assets\TimelineHourglass\Scripts\TimelineEvent.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\2D Sky FREE\Demo\Scripts\Note.txt" />
+    <None Include="Assets\2D Sky FREE\Readme.txt" />
     <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
+    <None Include="Assets\GE Common Assets\Readme.txt" />
+    <None Include="Assets\GUI Animator\GUI Animator FREE\!How to.txt" />
+    <None Include="Assets\GUI Animator\GUI Animator FREE\Readme.txt" />
     <None Include="Assets\MS\2D Flat.shader" />
     <None Include="Assets\Medieval Sword\read me.txt" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
@@ -192,6 +222,7 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
+    <None Include="Assets\Tree1\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

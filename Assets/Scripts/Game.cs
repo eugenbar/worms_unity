@@ -12,6 +12,7 @@ public class Game : MonoBehaviour {
     public GameObject sphere2;
     public GameObject win1;
     public GameObject win2;
+    public GameObject windZ;
   
     public Text txtRef;
     //public Canvas can;
@@ -71,6 +72,11 @@ public class Game : MonoBehaviour {
         txtRef.text = windR.ToString();
         player1.wind = windR/10;
         player2.wind = windR/10;
+        WindZone wz = windZ.GetComponent<WindZone>();
+        wz.windMain = Mathf.Abs((windR / 10));
+        Transform wt = windZ.GetComponent<Transform>();
+        if (windR > 0) wt.transform.position = new Vector3(-45,0,0);
+        if (windR < 0) wt.transform.position = new Vector3(4.2f, 0, 0);
 
     }
     public void setPlayer1()

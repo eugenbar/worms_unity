@@ -125,14 +125,17 @@ public class PlayerController : MonoBehaviour {
 		shootDirection = playerToMouse;
 		Debug.Log("Shoot!");
 		GameObject bullet = Instantiate(bulletPrefab);
+        ConstantForce2D cf2d = bullet.GetComponent<ConstantForce2D>();
 		bullet.transform.position = bulletInitialTransform.position;
-		bullet.GetComponent<Rigidbody2D>().velocity = (shootDirection*bulletMaxInitialVelocity+new Vector2(wind,0))*(timeShooting/maxTimeShooting);
-
+		bullet.GetComponent<Rigidbody2D>().velocity = (shootDirection*bulletMaxInitialVelocity)*(timeShooting/maxTimeShooting);
+        cf2d.force = new Vector2(wind, 0);
+            
         switchP = true;
         isActive = false;
         shooting = false;
         knifing = false;
         targeting = false;
+        gunTransform.gameObject.SetActive(false);
     }
 
     // Updating the rotation of the weapon and consequently of the aim based on where the player is looking

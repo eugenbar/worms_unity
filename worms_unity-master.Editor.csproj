@@ -115,6 +115,18 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="2D Sky FREE">
+      <HintPath>Assets\2D Sky FREE\Demo\Scripts\2D Sky FREE.dll</HintPath>
+    </Reference>
+    <Reference Include="GETween">
+      <HintPath>Assets\GUI Animator\Common\Plugins\GETween.dll</HintPath>
+    </Reference>
+    <Reference Include="GUIAnimatorFREE">
+      <HintPath>Assets\GUI Animator\GUI Animator FREE\Plugins\GUIAnimatorFREE.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-UnityScript">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="worms_unity-master.csproj">
@@ -159,7 +171,12 @@
     <Compile Include="Assets\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\2D Sky FREE\Demo\Scripts\Note.txt" />
+    <None Include="Assets\2D Sky FREE\Readme.txt" />
     <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
+    <None Include="Assets\GE Common Assets\Readme.txt" />
+    <None Include="Assets\GUI Animator\GUI Animator FREE\!How to.txt" />
+    <None Include="Assets\GUI Animator\GUI Animator FREE\Readme.txt" />
     <None Include="Assets\MS\2D Flat.shader" />
     <None Include="Assets\Medieval Sword\read me.txt" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
@@ -202,6 +219,7 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
+    <None Include="Assets\Tree1\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
